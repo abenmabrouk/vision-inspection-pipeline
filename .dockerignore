@@ -1,0 +1,7 @@
+build/
+build_*/
+*.zip
+.git/
+.github/
+*.md
+!README.md

@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  vision-build:
+    build: .
+    image: vision-inspection:v1
+    container_name: vision_build
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: >
+      bash -c "mkdir -p build && cd build && cmake .. && make -j\$(nproc)"
+
+  vision-run:
+    build: .
+    image: vision-inspection:v1
+    container_name: vision_run
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./output:/app/output
+    working_dir: /app
+    command: ./build/inspection_pipeline data/test.mp4 --headless --output output
+    depends_on:
+      - vision-build

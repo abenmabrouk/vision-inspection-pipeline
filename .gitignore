@@ -1,0 +1,26 @@
+# Build
+build/
+*.o
+*.so
+*.a
+*.exe
+inspection_pipeline
+test_pipeline
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (on ne commit pas les vidéos/lourds)
+data/videos/
+data/images/
+*.mp4
+*.avi
+*.onnx
+*.db
+*.db-journal
